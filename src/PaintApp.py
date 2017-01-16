@@ -40,11 +40,11 @@ class MyPaintWidget(FloatLayout):
     draw_enabled = True
 
     def on_touch_move(self, touch):
-        if touch.x > 100 and self.draw_enabled == True:
+        if touch.x > self.pos[0] and self.draw_enabled == True:
             touch.ud['line'].points += [touch.x, touch.y]
 
     def on_touch_down(self, touch):
-        if touch.x > 100:
+        if touch.x > self.pos[0]:
             self.draw_enabled = True
             with self.canvas:
                 Color(*self.color)
